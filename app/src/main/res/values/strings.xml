@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Gon Sushi</string>
+    <string name="address">Load of Hay, 33 Villier Street, Uxbridge, UB8 2PU</string>
+    <string name="phone_number">+44 7432 651978</string>
+    <string name="opening_times">Tue-Sat\t\t17:00 - 23:00</string>
+    <string name="quote">“Best fresh sushi I\'ve had in UK”</string>
+    <string name="google_maps_key">AIzaSyD6FgKoizylNYMqXLyLXB0NMytOrl_TuCQ</string>
+</resources>
