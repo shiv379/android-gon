@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="#FFFFFF"
     android:fillViewport="true"
     tools:context="com.shiv379.android.gonsushi.MainActivity">
 
@@ -16,20 +17,13 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/foodImage"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:adjustViewBounds="true"
-                android:elevation="2dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/food_banner" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/title_font"
                 android:textStyle="bold"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/primary_trans"
                 android:background="@drawable/background_color"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingTop="8sp"
@@ -37,6 +31,18 @@
                 android:elevation="8dp"
                 android:fontFamily="cursive"
                 android:text="@string/app_name"/>
+
+            <ImageView
+                android:id="@+id/foodImage"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:adjustViewBounds="true"
+                android:elevation="2dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/food_banner"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
         </RelativeLayout>
 
         <LinearLayout
@@ -47,75 +53,89 @@
             android:layout_marginTop="32dp"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:orientation="horizontal">
+            <android.support.v7.widget.CardView
+                android:id="@+id/place_card_view"
+                style="@style/card"
+                android:onClick="goSecondView"
+                card_view:cardBackgroundColor="#00FFFFFF">
 
-                <ImageView
-                    android:id="@+id/placeIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:src="@drawable/ic_place_black_18dp" />
+                <LinearLayout
+                    style="@style/card_linear">
 
-                <TextView
-                    android:id="@+id/addressLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/address"
-                    android:textSize="@dimen/body_font"
-                    android:layout_marginLeft="16sp"
-                    android:onClick="goSecondView"/>
-            </LinearLayout>
+                    <ImageView
+                        android:id="@+id/placeIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:src="@drawable/ic_place_black_18dp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/addressLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:textColor="@color/accent"
+                        android:text="@string/address"
+                        android:textSize="@dimen/body_font"
+                        android:layout_marginLeft="16sp" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
 
-                <ImageView
-                    android:id="@+id/phoneIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:src="@drawable/ic_phone_black_18dp" />
+            <View style="@style/Divider"/>
 
-                <TextView
-                    android:id="@+id/phoneLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:autoLink="phone"
-                    android:text="@string/phone_number"
-                    android:textSize="@dimen/body_font"
-                    android:layout_marginLeft="16sp"/>
-            </LinearLayout>
+            <android.support.v7.widget.CardView
+                android:id="@+id/phone_card_view"
+                style="@style/card"
+                card_view:cardBackgroundColor="#00FFFFFF">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                <LinearLayout
+                    style="@style/card_linear">
 
-                <ImageView
-                    android:id="@+id/openingIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:src="@drawable/ic_access_time_black_18dp" />
+                    <ImageView
+                        android:id="@+id/phoneIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:src="@drawable/ic_phone_black_18dp" />
 
-                <TextView
-                    android:id="@+id/openingLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textSize="@dimen/body_font"
-                    android:text="@string/opening_times"
-                    android:layout_marginLeft="16sp"/>
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/phoneLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:autoLink="phone"
+                        android:text="@string/phone_number"
+                        android:textSize="@dimen/body_font"
+                        android:layout_marginLeft="16sp"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/opening_card_view"
+                style="@style/card"
+                card_view:cardBackgroundColor="#00FFFFFF">
+
+                <LinearLayout
+                    style="@style/card_linear">
+
+                    <ImageView
+                        android:id="@+id/openingIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:src="@drawable/ic_access_time_black_18dp" />
+
+                    <TextView
+                        android:id="@+id/openingLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/body_font"
+                        android:text="@string/opening_times"
+                        android:layout_marginLeft="16sp"
+                        android:textColor="@color/primary_text"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
         </LinearLayout>
 
         <RelativeLayout
@@ -128,11 +148,13 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:text="@string/quote"
                 android:textAlignment="center"
                 android:textSize="@dimen/title_font"
-                android:textStyle="italic" />
-
+                android:textStyle="italic"
+                android:textColor="@color/primary"/>
 
         </RelativeLayout>
     </LinearLayout>
