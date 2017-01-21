@@ -67,7 +67,8 @@
                     android:layout_gravity="center"
                     android:text="@string/address"
                     android:textSize="@dimen/body_font"
-                    android:layout_marginLeft="16sp" />
+                    android:layout_marginLeft="16sp"
+                    android:onClick="goSecondView"/>
             </LinearLayout>
 
             <LinearLayout
